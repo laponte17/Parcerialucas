@@ -1,189 +1,316 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Plano: Reforma Financiada</title>
+    <meta name="theme-color" content="#050505">
+    <title>Protocolo Executivo | Lucas Monteiro</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Fonts Premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,800;1,6..96,400&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
+                        sans: ['Manrope', 'sans-serif'],
+                        serif: ['Bodoni Moda', 'serif'],
                     },
                     colors: {
-                        brand: {
-                            dark: '#020617', 
-                            card: '#0f172a', 
-                            gold: '#fbbf24', 
-                            accent: '#38bdf8',
-                            success: '#22c55e',
-                            danger: '#ef4444'
-                        }
+                        obsidian: '#050505',
+                        charcoal: '#121212',
+                        gold: {
+                            100: '#F9F1D8',
+                            300: '#E5C585',
+                            500: '#C5A059',
+                            700: '#8A6E36',
+                            900: '#4A3B1D',
+                        },
+                        platinum: '#E2E8F0',
+                    },
+                    backgroundImage: {
+                        'lux-gradient': 'linear-gradient(145deg, #1A1A1A 0%, #0A0A0A 100%)',
+                        'gold-shimmer': 'linear-gradient(45deg, #8A6E36, #F9F1D8, #8A6E36)',
                     },
                     boxShadow: {
-                        'glow': '0 0 20px rgba(251, 191, 36, 0.15)',
+                        'glow': '0 0 40px -10px rgba(197, 160, 89, 0.15)',
+                        'neumorph': '20px 20px 60px #0e0e0e, -20px -20px 60px #1e1e1e',
+                        'card-up': '0 -10px 40px -10px rgba(0,0,0,0.8)',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'pulse-gold': 'pulseGold 3s infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseGold: {
+                            '0%, 100%': { opacity: '0.5' },
+                            '50%': { opacity: '1' },
+                        }
                     }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #020617; color: #f8fafc; -webkit-font-smoothing: antialiased; }
-        .glass-card { 
-            background: rgba(15, 23, 42, 0.95); 
-            backdrop-filter: blur(16px); 
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08); 
+        /* Smooth Scrolling & Base */
+        body { 
+            background-color: #050505; 
+            color: #E2E8F0;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
         }
-        /* Mobile specific adjustments */
-        .safe-area-pb { padding-bottom: env(safe-area-inset-bottom); }
+
+        /* Glassmorphism Premium */
+        .glass-dark {
+            background: rgba(18, 18, 18, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* Text Gradients */
+        .text-gradient-gold {
+            background: linear-gradient(to right, #F9F1D8, #C5A059);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Card Styles */
+        .premium-card {
+            background: linear-gradient(160deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .premium-card:active {
+            transform: scale(0.98);
+            border-color: rgba(197, 160, 89, 0.3);
+        }
+
+        /* Button Shine Effect */
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-shine::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transition: 0.5s;
+        }
+        .btn-shine:active::before {
+            left: 100%;
+            transition: 0s;
+        }
+
+        /* Utility */
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .safe-pb { padding-bottom: env(safe-area-inset-bottom); }
     </style>
 </head>
-<body class="pb-36 overflow-x-hidden">
+<body class="pb-32">
 
-    <!-- Aviso de Urgência (Sticky Top) -->
-    <div class="bg-red-900/90 border-b border-red-500/20 text-center py-2 px-3 sticky top-0 z-40 backdrop-blur-md shadow-lg">
-        <p class="text-[10px] font-bold text-red-200 uppercase tracking-widest flex justify-center items-center gap-2">
-            <i class="fas fa-hammer animate-pulse"></i> Objetivo: Custear a Reforma
-        </p>
-    </div>
-
-    <!-- Hero Section -->
-    <header class="pt-8 pb-4 px-5 text-center">
-        <div class="inline-block px-3 py-1 rounded-full bg-brand-gold/10 border border-brand-gold/20 mb-4">
-            <span class="text-brand-gold text-[10px] font-bold uppercase tracking-wider">Estratégia Emergencial</span>
+    <!-- Top Navigation (Minimalist) -->
+    <nav class="fixed top-0 w-full z-50 glass-dark border-b border-white/5 px-6 py-4 flex justify-between items-center transition-all duration-300">
+        <div class="flex items-center gap-3">
+            <div class="h-8 w-[1px] bg-gradient-to-b from-transparent via-gold-500 to-transparent"></div>
+            <div>
+                <p class="text-[8px] font-bold text-gold-500 uppercase tracking-[0.2em]">Dossiê Privado</p>
+                <p class="text-xs font-serif text-white tracking-wide">Lucas Monteiro</p>
+            </div>
         </div>
-        <h1 class="text-3xl font-display font-bold leading-tight mb-3 text-white">
-            Eu pago a obra.<br>
-            <span class="text-brand-gold">Você assina.</span>
-        </h1>
-        <p class="text-slate-400 text-sm leading-relaxed">
-            Lucas, entendi o recado. <strong>Não é hora de você trabalhar mais.</strong> Mudei o plano para gerar caixa sem consumir seu tempo.
-        </p>
-    </header>
+        <div class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_10px_#22c55e] animate-pulse"></div>
+    </nav>
 
-    <!-- O Que Eu Faço (Card Verde) -->
-    <section class="px-4 py-2">
-        <div class="glass-card rounded-xl p-5 border-l-4 border-l-brand-success shadow-lg">
-            <h2 class="text-base font-bold text-white mb-4 flex items-center gap-2">
-                <i class="fas fa-check-circle text-brand-success"></i> Minha Parte (100% Execução)
-            </h2>
-            <div class="space-y-4">
-                <div class="flex gap-3">
-                    <div class="bg-brand-success/10 w-8 h-8 rounded flex items-center justify-center text-brand-success flex-shrink-0"><i class="fas fa-brain text-xs"></i></div>
+    <!-- Main Content -->
+    <main class="pt-28 px-5">
+
+        <!-- Hero: The Value Proposition -->
+        <header class="mb-10 animate-fade-in-up opacity-0">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-900/20 border border-gold-700/30 mb-5">
+                <i class="fas fa-crown text-[10px] text-gold-500"></i>
+                <span class="text-[10px] font-bold text-gold-300 uppercase tracking-wider">Protocolo de Caixa Imediato</span>
+            </div>
+            
+            <h1 class="font-serif text-4xl text-white leading-[1.15] mb-4">
+                A Reforma <br>
+                <span class="text-gradient-gold italic pr-1">Autofinanciada.</span>
+            </h1>
+            
+            <p class="text-sm text-gray-400 font-light leading-relaxed border-l-2 border-gold-500/30 pl-4 mt-4">
+                Um plano financeiro cirúrgico para gerar liquidez durante a obra, eliminando sua carga operacional através de Inteligência Artificial.
+            </p>
+        </header>
+
+        <!-- The Deliverables (Visual Cards) -->
+        <section class="space-y-4 mb-10 animate-fade-in-up opacity-0 delay-100">
+            <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-2 ml-1">Escopo Clínico</h2>
+            
+            <!-- Card 1: IA -->
+            <div class="premium-card rounded-2xl p-5 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                    <i class="fas fa-microchip text-6xl text-white"></i>
+                </div>
+                <div class="flex items-start gap-4 relative z-10">
+                    <div class="w-10 h-10 rounded-full bg-gold-900/30 border border-gold-500/20 flex items-center justify-center text-gold-300 shadow-glow">
+                        <i class="fas fa-brain"></i>
+                    </div>
                     <div>
-                        <h3 class="text-white font-bold text-sm">Estratégia & IA</h3>
-                        <p class="text-slate-400 text-xs leading-snug">Eu crio os roteiros e a inteligência de vendas. Zero esforço criativo seu.</p>
+                        <h3 class="text-base font-serif text-white mb-1">Direção Estratégica & IA</h3>
+                        <p class="text-xs text-gray-400 font-light leading-relaxed">
+                            Eu utilizo IA para roteirizar e criar estratégias de vendas. <strong>Você não precisa ter ideias.</strong> Apenas aprovar.
+                        </p>
                     </div>
                 </div>
-                <div class="flex gap-3">
-                    <div class="bg-brand-success/10 w-8 h-8 rounded flex items-center justify-center text-brand-success flex-shrink-0"><i class="fas fa-user-clock text-xs"></i></div>
+            </div>
+
+            <!-- Card 2: Team Management -->
+            <div class="premium-card rounded-2xl p-5 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                    <i class="fas fa-users-cog text-6xl text-white"></i>
+                </div>
+                <div class="flex items-start gap-4 relative z-10">
+                    <div class="w-10 h-10 rounded-full bg-blue-900/20 border border-blue-500/20 flex items-center justify-center text-blue-300">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
                     <div>
-                        <h3 class="text-white font-bold text-sm">Gestão de Equipe</h3>
-                        <p class="text-slate-400 text-xs leading-snug">Eu cobro e direciono sua equipe no WhatsApp. Você não precisa microgerenciar.</p>
+                        <h3 class="text-base font-serif text-white mb-1">Gestão Executiva</h3>
+                        <p class="text-xs text-gray-400 font-light leading-relaxed">
+                            Atuação direta nos grupos da sua equipe. Eu cobro a execução. <strong>Você não gerencia.</strong>
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Requisitos (Card Simples) -->
-    <section class="px-4 py-4">
-        <div class="bg-brand-card rounded-xl p-5 border border-white/5">
-            <h2 class="text-sm font-bold text-brand-gold uppercase tracking-wide mb-3 flex items-center gap-2">
-                <i class="fas fa-lock"></i> O Trato (Sua Parte)
-            </h2>
-            <ul class="space-y-3">
-                <li class="flex gap-3 text-xs text-slate-300">
-                    <i class="fas fa-check text-brand-success mt-0.5"></i>
-                    <span><strong>1 Braço Direito:</strong> Aponte alguém para gravar vídeos e cuidar da agenda. Eu resolvo com ela.</span>
-                </li>
-                <li class="flex gap-3 text-xs text-slate-300">
-                    <i class="fas fa-check text-brand-success mt-0.5"></i>
-                    <span><strong>30min Quinzenais:</strong> Reunião rápida a cada 15 dias só para ver o lucro entrar.</span>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Preço (Destaque) -->
-    <section class="px-4 mt-2 mb-8">
-        <div class="glass-card rounded-2xl p-6 text-center shadow-glow border border-brand-gold/30 relative overflow-hidden">
-            <!-- Faixa Decorativa -->
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
-            
-            <p class="text-xs text-slate-400 uppercase tracking-widest mb-1">Investimento Simbólico</p>
-            
-            <div class="flex items-center justify-center gap-1 my-2">
-                <span class="text-xl text-slate-500 font-light">R$</span>
-                <span class="text-6xl font-display font-bold text-white tracking-tighter">100</span>
+        <!-- Requirements (Minimalist Checklist) -->
+        <section class="mb-12 animate-fade-in-up opacity-0 delay-200">
+            <div class="px-2">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="h-px w-8 bg-gold-500/50"></div>
+                    <span class="text-[10px] text-gold-500 uppercase tracking-widest font-bold">Estrutura Obrigatória</span>
+                    <div class="h-px flex-1 bg-gold-500/20"></div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-white/5 rounded-xl p-4 border border-white/5 text-center">
+                        <p class="text-2xl font-serif text-white mb-1">1</p>
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wider">Pessoa p/ Execução</p>
+                    </div>
+                    <div class="bg-white/5 rounded-xl p-4 border border-white/5 text-center">
+                        <p class="text-2xl font-serif text-white mb-1">30<span class="text-xs">min</span></p>
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wider">Quinzenalmente</p>
+                    </div>
+                </div>
             </div>
-            
-            <p class="text-xs text-slate-500 mb-4">por ciclo de 15 dias</p>
+        </section>
 
-            <div class="bg-brand-gold/10 rounded-lg p-2 inline-block w-full">
-                <p class="text-[10px] text-brand-gold font-bold">
-                    <i class="fas fa-shield-alt mr-1"></i> Garantia Total
-                </p>
-                <p class="text-[10px] text-brand-gold/80 leading-tight mt-1">
-                    Se atrapalhar a obra, paramos na hora.
-                </p>
+        <!-- The Offer (Luxury Anchor) -->
+        <section class="animate-fade-in-up opacity-0 delay-300 mb-6">
+            <div class="relative rounded-3xl p-8 text-center overflow-hidden border border-gold-500/30">
+                <!-- Luxury Background -->
+                <div class="absolute inset-0 bg-lux-gradient opacity-90"></div>
+                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+                
+                <!-- Content -->
+                <div class="relative z-10">
+                    <p class="text-[9px] text-gold-500 uppercase tracking-[0.3em] mb-4">Honorário Simbólico</p>
+                    
+                    <div class="flex items-center justify-center gap-1 mb-6 transform scale-110">
+                        <span class="text-2xl text-gray-500 font-light mr-1">R$</span>
+                        <span class="text-6xl font-serif font-medium text-white tracking-tighter">100</span>
+                        <span class="self-end text-xs text-gray-500 mb-2 font-light">/ ciclo (15 dias)</span>
+                    </div>
+
+                    <!-- Risk Reversal Badge -->
+                    <div class="inline-block bg-white/5 backdrop-blur-md rounded-lg p-3 border border-white/10 max-w-[280px]">
+                        <div class="flex flex-col gap-1">
+                            <span class="text-[10px] font-bold text-gold-300 uppercase tracking-wider flex items-center justify-center gap-2">
+                                <i class="fas fa-shield-alt"></i> Garantia Risco Negativo
+                            </span>
+                            <p class="text-[10px] text-gray-300 font-light leading-snug mt-1">
+                                Insatisfação = Devolução de R$ 100 + Pagamento de R$ 100 do meu bolso.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Sticky Footer CTA (Mobile Optimized) -->
-    <div class="fixed bottom-0 left-0 right-0 p-4 bg-brand-dark/95 backdrop-blur-xl border-t border-white/10 z-50 safe-area-pb shadow-2xl">
-        <button onclick="acceptChallenge()" class="w-full bg-gradient-to-r from-brand-gold to-yellow-600 active:scale-[0.98] transition-transform text-white font-bold text-lg py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2 group relative overflow-hidden">
-            <span class="relative z-10 font-display tracking-wide">ACEITAR DESAFIO</span>
-            <i class="fas fa-arrow-right relative z-10 animate-pulse"></i>
+    </main>
+
+    <!-- Sticky Footer CTA (Elevated) -->
+    <div class="fixed bottom-0 left-0 right-0 p-4 z-50 safe-pb">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent pointer-events-none -z-10 h-32 bottom-0 top-auto"></div>
+        
+        <button onclick="acceptProtocol()" class="btn-shine w-full group relative overflow-hidden bg-white text-black rounded-xl py-4 px-6 shadow-[0_0_30px_rgba(255,255,255,0.1)] active:scale-[0.99] transition-all duration-200">
+            <div class="absolute inset-0 bg-gold-shimmer opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
             
-            <!-- Brilho passando -->
-            <div class="absolute inset-0 bg-white/20 translate-x-[-100%] animate-[shimmer_2s_infinite]"></div>
+            <div class="flex items-center justify-between">
+                <div class="text-left">
+                    <span class="block text-[10px] font-bold uppercase tracking-widest text-gold-900 opacity-60">Aceitar Termos</span>
+                    <span class="block text-sm font-serif font-bold tracking-wide">INICIAR PROTOCOLO</span>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center group-active:translate-x-1 transition-transform">
+                    <i class="fas fa-arrow-right text-sm"></i>
+                </div>
+            </div>
         </button>
-        <p class="text-center text-[10px] text-slate-500 mt-2">
-            <i class="fas fa-bolt text-yellow-500"></i> Começamos imediatamente
-        </p>
     </div>
 
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    keyframes: {
-                        shimmer: {
-                            '0%': { transform: 'translateX(-100%)' },
-                            '100%': { transform: 'translateX(100%)' }
-                        }
-                    }
-                }
-            }
-        }
-
-        function acceptChallenge() {
+        function acceptProtocol() {
             const phone = "5577981539804";
-            const msg = "Miranda, bora pagar essa reforma. Eu topo a proposta de R$ 100 quinzenais sem me dar trabalho. Tenho a pessoa para executar. Manda o Pix.";
+            const msg = "Miranda, analisei o Protocolo. A proposta de R$ 100 com risco negativo é irrecusável. Tenho a equipe pronta. Manda o Pix pra gente começar.";
             
             const btn = document.querySelector('button');
-            const originalText = btn.innerHTML;
+            const icon = btn.querySelector('.fa-arrow-right');
+            const title = btn.querySelector('.font-serif');
             
-            btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> ABRINDO WHATS...';
-            btn.classList.add('opacity-90');
+            // Haptic Visual Feedback
+            btn.classList.add('bg-gray-100');
+            icon.classList.remove('fa-arrow-right');
+            icon.classList.add('fa-spinner', 'fa-spin');
+            title.textContent = "AUTENTICANDO...";
             
+            // Vibration (if supported)
+            if (navigator.vibrate) navigator.vibrate(50);
+
             setTimeout(() => {
                 window.location.href = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+                
+                // Reset button after leaving (in case user comes back)
                 setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.classList.remove('opacity-90');
+                    btn.classList.remove('bg-gray-100');
+                    icon.classList.remove('fa-spinner', 'fa-spin');
+                    icon.classList.add('fa-check');
+                    title.textContent = "REDIRECIONADO";
                 }, 2000);
-            }, 600);
+            }, 800);
         }
     </script>
 </body>
