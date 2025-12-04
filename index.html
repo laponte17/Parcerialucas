@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano Financeiro: Reforma | Lucas Monteiro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#020617', 
+                            card: '#0f172a', 
+                            gold: '#fbbf24', 
+                            accent: '#38bdf8',
+                            success: '#22c55e',
+                            danger: '#ef4444'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #020617; color: #f8fafc; }
+        .glass-card { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .req-list li { position: relative; padding-left: 2rem; margin-bottom: 1rem; }
+        .req-list li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; top: 4px; color: #22c55e; }
+    </style>
+</head>
+<body class="antialiased pb-32">
+
+    <!-- Aviso de Urgência -->
+    <div class="bg-red-900/20 border-b border-red-500/20 text-center py-2 px-4 sticky top-0 z-50 backdrop-blur-md">
+        <p class="text-[10px] font-bold text-red-400 uppercase tracking-widest flex justify-center items-center gap-2">
+            <i class="fas fa-hammer"></i> Foco: Custear a Reforma da Vigilância
+        </p>
+    </div>
+
+    <!-- Hero Section: Ataque à Objeção -->
+    <header class="pt-8 pb-6 px-6 text-center max-w-4xl mx-auto">
+        <h1 class="text-3xl md:text-5xl font-display font-bold leading-tight mb-4 text-white">
+            Eu pago a sua obra.<br>
+            <span class="text-brand-gold">Você só assina o cheque.</span>
+        </h1>
+        <p class="text-slate-400 text-sm md:text-base max-w-xl mx-auto leading-relaxed mt-4">
+            Lucas, entendi que <strong>não é o momento</strong> de você trabalhar mais. Por isso, mudei o plano. <br>
+            Esta proposta não exige seu tempo. Ela exige apenas que você aceite o dinheiro.
+        </p>
+    </header>
+
+    <!-- The "Grand Slam" Deliverables -->
+    <section class="px-4 py-4 max-w-3xl mx-auto">
+        <div class="glass-card rounded-xl p-6 border-l-4 border-l-brand-success relative overflow-hidden">
+            <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                <i class="fas fa-robot text-brand-success"></i> O Que Eu Faço (Sua parte é ZERO)
+            </h2>
+            <div class="space-y-4">
+                <div class="flex gap-4 items-start">
+                    <div class="bg-brand-success/10 p-2 rounded text-brand-success"><i class="fas fa-brain"></i></div>
+                    <div>
+                        <h3 class="text-white font-bold text-sm">Inteligência & Roteiros</h3>
+                        <p class="text-slate-400 text-xs">Eu crio toda a estratégia e roteiros baseados em IA. Você não precisa ter ideias.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <div class="bg-brand-success/10 p-2 rounded text-brand-success"><i class="fas fa-users"></i></div>
+                    <div>
+                        <h3 class="text-white font-bold text-sm">Gestão da Equipe</h3>
+                        <p class="text-slate-400 text-xs">Eu oriento sua equipe nos grupos. Eu cobro. Eu direciono. Você não gerencia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Requirements (Wolf's Qualification - "The Deal") -->
+    <section class="px-4 py-6 max-w-3xl mx-auto">
+        <div class="bg-brand-card rounded-xl p-6 border border-white/5">
+            <h2 class="text-base font-display font-bold mb-4 text-brand-gold uppercase tracking-wide">
+                Sua Única Obrigação (Estrutura Mínima)
+            </h2>
+            <p class="text-slate-400 text-xs mb-4">
+                Para que eu não precise te incomodar durante a obra, você precisa delegar 100%:
+            </p>
+            <ul class="req-list text-slate-300 text-sm">
+                <li>
+                    <strong>Um "Braço Direito":</strong> Aponte UMA pessoa da sua confiança para gravar os vídeos e gerenciar sua agenda. Eu falo com ela. Ela resolve.
+                </li>
+                <li>
+                    <strong>Aprovação Relâmpago:</strong> Apenas <strong>30 minutos a cada 15 dias</strong> (reunião quinzenal) para eu te mostrar quanto dinheiro entrou e ajustarmos a rota. Só.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- The Price Anchor -->
+    <section class="px-4 py-6 max-w-sm mx-auto mb-20">
+        <div class="text-center mb-4">
+            <h3 class="text-white font-bold text-sm">Investimento Simbólico</h3>
+            <p class="text-[10px] text-slate-500 uppercase tracking-widest">Apenas para validar o compromisso</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 border border-brand-gold/30 relative shadow-2xl shadow-brand-gold/5">
+            <div class="absolute -right-12 top-4 bg-brand-gold text-brand-dark text-[10px] font-bold px-12 py-1 rotate-45">
+                ATIVAR HOJE
+            </div>
+            
+            <div class="flex items-end justify-center gap-1 mb-2">
+                <span class="text-slate-400 text-lg">R$</span>
+                <span class="text-6xl font-display font-bold text-white">100</span>
+                <div class="text-left leading-tight ml-2">
+                    <span class="text-slate-500 text-xs block">por ciclo</span>
+                    <span class="text-slate-500 text-xs block">(15 dias)</span>
+                </div>
+            </div>
+
+            <p class="text-center text-xs text-brand-success font-bold mb-4">
+                <i class="fas fa-check-circle"></i> Menor que o custo de 1 saco de cimento.
+            </p>
+
+            <div class="text-center text-[10px] text-slate-500 border-t border-white/5 pt-3">
+                Se em 15 dias você achar que atrapalhou a obra, paramos. <br>Sem risco. Sem multa. Sem mimimi.
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky Action Footer -->
+    <div class="fixed bottom-0 left-0 right-0 p-4 bg-brand-dark/95 backdrop-blur border-t border-white/10 z-50">
+        <div class="max-w-md mx-auto">
+            <button onclick="acceptChallenge()" class="w-full bg-gradient-to-r from-brand-gold to-yellow-600 hover:brightness-110 text-white font-bold text-lg py-3 rounded-lg shadow-lg flex items-center justify-center gap-2 transition-all active:scale-95">
+                <i class="fas fa-file-signature"></i>
+                <span>VAMOS PAGAR ESSA OBRA</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function acceptChallenge() {
+            const msg = "Miranda, entendi. Se é para você gerar o caixa da reforma sem tomar meu tempo, eu topo. Tenho a pessoa para executar. Manda o Pix dos 100 pra gente testar esse primeiro ciclo.";
+            
+            const btn = document.querySelector('button');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ENVIANDO...';
+            
+            setTimeout(() => {
+                // Link para WhatsApp (Simulado)
+                alert("Redirecionando para o WhatsApp...\nMensagem: " + msg);
+            }, 800);
+        }
+    </script>
+</body>
+</html>
+
